@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LayoutTemplate, Server, Cloud, Database, GitBranch, Palette, Sparkles } from "lucide-react";
 import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
 import { GlassCard } from "../../ui/GlassCard/GlassCard";
+import { CountUp } from "../../ui/CountUp/CountUp";
 import { skillCategories } from "../../../data/skills";
 import styles from "./Skills.module.scss";
 
@@ -40,14 +41,14 @@ export function Skills() {
                     <li key={skill.name}>
                       <div className={styles.skillLabel}>
                         <span>{skill.name}</span>
-                        <span>{skill.level}%</span>
+                        <CountUp value={skill.level} suffix="%" duration={1000} />
                       </div>
                       <div className={styles.barTrack}>
                         <motion.div
                           className={styles.barFill}
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
+                          viewport={{ once: false, margin: "-10% 0px" }}
                           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                         />
                       </div>

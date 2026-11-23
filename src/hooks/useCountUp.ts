@@ -4,10 +4,13 @@ import { useInView } from "framer-motion";
 export function useCountUp(target: number, duration = 1500) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const isInView = useInView(ref, { once: false, margin: "-10% 0px" });
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView) {
+      setValue(0);
+      return;
+    }
     let start: number | null = null;
     let frame: number;
 

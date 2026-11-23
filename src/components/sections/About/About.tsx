@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
 import { AnimatedCounter } from "../../ui/AnimatedCounter/AnimatedCounter";
 import { GlassCard } from "../../ui/GlassCard/GlassCard";
+import { CountUp } from "../../ui/CountUp/CountUp";
 import { profile, stats } from "../../../data/profile";
 import styles from "./About.module.scss";
 
@@ -63,7 +64,7 @@ export function About() {
           >
             <GlassCard glow className={styles.factCard}>
               <span className={styles.factEmoji}>{fact.emoji}</span>
-              <span className={styles.factValue}>{fact.value.toLocaleString()}</span>
+              <span className={styles.factValue}><CountUp value={fact.value} /></span>
               <span className={styles.factLabel}>{fact.label}</span>
             </GlassCard>
           </motion.div>

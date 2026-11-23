@@ -42,11 +42,11 @@ export function HomePage() {
       <Hero />
       <About />
       <Suspense fallback={null}>
-        <Skills />
-        <Experience />
         <Projects />
+        <Experience />
         <Certifications />
         <BlogPreview />
+        <Skills />
         <Services />
         <LiveWidgets />
         <Contact />
