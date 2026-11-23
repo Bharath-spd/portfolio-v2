@@ -1,0 +1,14 @@
+@use "../../../styles/variables" as *;
+
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: $z-cursor;
+  will-change: transform;
+}

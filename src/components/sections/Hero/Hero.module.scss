@@ -1,0 +1,248 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-12;
+  padding: $space-24 $space-6;
+  @include container;
+  margin-inline: auto;
+
+  @include laptop {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: $space-16 $space-4;
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.content {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+
+  @include laptop {
+    align-items: center;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  width: fit-content;
+  padding: 0.4rem 0.9rem;
+  border-radius: $radius-full;
+  @include glass;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: var(--accent-text);
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $accent;
+    box-shadow: 0 0 8px $accent;
+  }
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.gradient {
+  @include gradient-text;
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.typed {
+  display: inline-block;
+  font-size: 0.65em;
+  color: var(--text-muted);
+  font-family: $font-mono;
+  margin-top: $space-2;
+}
+
+.cursor {
+  color: var(--accent-text);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.bio {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.ctas {
+  display: flex;
+  gap: $space-4;
+  flex-wrap: wrap;
+
+  @include laptop {
+    justify-content: center;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-4;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  @include glass;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: var(--accent-text);
+    transform: translateY(-3px);
+  }
+}
+
+.orbitWrap {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include laptop {
+    width: 280px;
+    height: 280px;
+    margin-top: $space-8;
+  }
+
+  @include mobile {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.orbitCore {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: $gradient-primary;
+  box-shadow: $shadow-glow-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-mono;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 2;
+}
+
+.ring {
+  position: absolute;
+  border: 1px dashed var(--border);
+  border-radius: 50%;
+}
+
+.ring1 {
+  width: 100%;
+  height: 100%;
+  animation: spin 40s linear infinite;
+}
+
+.ring2 {
+  width: 78%;
+  height: 78%;
+  border-style: solid;
+  border-color: rgba(99, 102, 241, 0.2);
+  animation: spin 30s linear infinite reverse;
+}
+
+.ring3 {
+  width: 55%;
+  height: 55%;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbitTag {
+  position: absolute;
+  padding: 0.4rem 0.8rem;
+  border-radius: $radius-full;
+  @include glass;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: var(--text);
+  animation: floatTag 6s ease-in-out infinite;
+
+  &[data-index="0"] { top: 4%; left: 8%; animation-delay: 0s; }
+  &[data-index="1"] { top: 15%; right: 2%; animation-delay: 1.5s; }
+  &[data-index="2"] { bottom: 10%; left: 0%; animation-delay: 3s; }
+  &[data-index="3"] { bottom: 2%; right: 12%; animation-delay: 4.5s; }
+}
+
+@keyframes floatTag {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  color: var(--text-muted);
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  @include laptop {
+    display: none;
+  }
+}
+
+.scrollLine {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(var(--text-muted), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring1, .ring2, .ring3, .orbitTag {
+    animation: none !important;
+  }
+}

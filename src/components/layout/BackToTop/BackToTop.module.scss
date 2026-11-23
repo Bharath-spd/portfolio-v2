@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.button {
+  position: fixed;
+  bottom: $space-8;
+  right: $space-8;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: $gradient-primary;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-glow-primary;
+  z-index: $z-overlay;
+  @include focus-ring;
+
+  @include tablet {
+    bottom: $space-6;
+    right: $space-6;
+  }
+}

@@ -1,0 +1,74 @@
+@use "../../../styles/variables" as *;
+
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  will-change: transform;
+}
+
+[data-theme="light"] .blob {
+  opacity: 0.25;
+}
+
+.blob1 {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  left: -100px;
+  background: radial-gradient(circle, $primary 0%, transparent 68%);
+  animation: float1 22s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 420px;
+  height: 420px;
+  top: 30%;
+  right: -140px;
+  background: radial-gradient(circle, $accent 0%, transparent 68%);
+  animation: float2 26s ease-in-out infinite;
+}
+
+.blob3 {
+  width: 380px;
+  height: 380px;
+  bottom: -140px;
+  left: 20%;
+  background: radial-gradient(circle, $pink 0%, transparent 68%);
+  animation: float3 30s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, 60px) scale(1.1); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 80px) scale(1.15); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -60px) scale(1.05); }
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--bg) 90%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+  }
+}

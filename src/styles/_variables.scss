@@ -1,0 +1,69 @@
+// ============================================================================
+// Design tokens — single source of truth for the visual system.
+// ============================================================================
+
+// Brand palette (as specified in the brief)
+$primary: #6366f1; // indigo
+$secondary: #8b5cf6; // violet
+$accent: #06b6d4; // cyan
+$pink: #ec4899;
+$orange: #f97316;
+
+$bg-dark: #0f172a;
+$bg-light: #f8fafc;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #{$primary}, #{$secondary});
+$gradient-aurora: linear-gradient(120deg, #{$primary} 0%, #{$secondary} 35%, #{$accent} 70%, #{$pink} 100%);
+$gradient-warm: linear-gradient(135deg, #{$pink}, #{$orange});
+$gradient-text: linear-gradient(90deg, #{$primary}, #{$accent});
+
+// Glass surfaces
+$glass-bg-dark: rgba(30, 36, 60, 0.55);
+$glass-border-dark: rgba(255, 255, 255, 0.1);
+$glass-bg-light: rgba(255, 255, 255, 0.78);
+$glass-border-light: rgba(15, 23, 42, 0.08);
+
+// Typography
+$font-display: "Sora", sans-serif;
+$font-body: "Inter", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+
+// Radii
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-full: 999px;
+
+// Shadows
+$shadow-glow-primary: 0 8px 32px rgba(99, 102, 241, 0.25);
+$shadow-glow-accent: 0 8px 32px rgba(6, 182, 212, 0.25);
+$shadow-card: 0 20px 60px rgba(15, 23, 42, 0.35);
+$shadow-card-light: 0 20px 60px rgba(15, 23, 42, 0.08);
+
+// Spacing scale
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-24: 6rem;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1280px;
+
+// Z-index scale
+$z-base: 1;
+$z-nav: 100;
+$z-overlay: 200;
+$z-modal: 300;
+$z-cursor: 400;
+$z-loader: 500;

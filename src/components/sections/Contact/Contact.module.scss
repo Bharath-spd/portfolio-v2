@@ -1,0 +1,129 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  @include container;
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: $space-8;
+  align-items: start;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+
+  button[type="submit"] {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  input,
+  textarea {
+    padding: $space-3 $space-4;
+    border-radius: $radius-md;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    font-family: $font-body;
+    font-size: 0.95rem;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: $accent;
+    }
+  }
+}
+
+.error {
+  font-size: 0.78rem;
+  color: var(--pink-text);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.sideCard {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-5;
+
+  a {
+    color: var(--text);
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-text);
+    }
+  }
+}
+
+.sideIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  background: $gradient-primary;
+  color: white;
+  flex-shrink: 0;
+}
+
+.sideLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.socialRow {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-2;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    @include glass;
+    color: var(--text-muted);
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: var(--accent-text);
+      transform: translateY(-3px);
+    }
+  }
+}

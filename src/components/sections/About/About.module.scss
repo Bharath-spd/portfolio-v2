@@ -1,0 +1,135 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  @include container;
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: $space-16;
+  align-items: center;
+  margin-bottom: $space-16;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+  }
+}
+
+.imageWrap {
+  position: relative;
+  justify-self: center;
+}
+
+.photoFrame {
+  width: 300px;
+  height: 360px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  position: relative;
+  @include gradient-border($radius-lg);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 29% 100%;
+    // Face sits left of the photo's centre, so zoom slightly around a point
+    // that pulls it to the middle of the frame without exposing empty edges.
+    transform: scale(1.0);
+  }
+
+  &::before {
+    opacity: 1;
+  }
+}
+
+.badgeFloat {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: 0.6rem 1.1rem;
+  border-radius: $radius-full;
+  @include glass(1.2);
+  box-shadow: $shadow-card;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+
+  p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.02rem;
+  }
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  margin-top: $space-4;
+  padding-top: $space-6;
+  border-top: 1px solid var(--border);
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-6;
+  }
+}
+
+.factsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.factCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-2;
+  padding: $space-6;
+}
+
+.factEmoji {
+  font-size: 1.8rem;
+}
+
+.factValue {
+  font-family: $font-display;
+  font-size: 1.4rem;
+  font-weight: 700;
+  @include gradient-text;
+}
+
+.factLabel {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

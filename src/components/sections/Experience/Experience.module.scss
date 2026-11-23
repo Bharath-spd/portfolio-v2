@@ -1,0 +1,145 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  @include container;
+  margin-inline: auto;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: $space-6;
+
+  @include mobile {
+    grid-template-columns: 20px 1fr;
+    gap: $space-4;
+  }
+}
+
+.markerCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $gradient-primary;
+  box-shadow: $shadow-glow-primary;
+  flex-shrink: 0;
+  margin-top: $space-8;
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(var(--border), transparent);
+  margin: $space-2 0;
+}
+
+.card {
+  margin-bottom: $space-8;
+  width: 100%;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-4;
+  margin-bottom: $space-4;
+  flex-wrap: wrap;
+
+  h3 {
+    font-size: 1.15rem;
+    color: var(--text);
+  }
+}
+
+.company {
+  color: var(--accent-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: $space-1;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $space-1;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-5;
+
+  li {
+    position: relative;
+    padding-left: $space-4;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $accent;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.educationBlock {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-6;
+  padding: $space-5 $space-6;
+  border-radius: $radius-lg;
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+
+  svg {
+    color: var(--accent-text);
+    flex-shrink: 0;
+  }
+}
+
+.eduPeriod {
+  color: var(--text-muted);
+  font-family: $font-mono;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,45 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  max-width: 640px;
+  margin-bottom: $space-16;
+
+  &[data-align="center"] {
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  @include tablet {
+    margin-bottom: $space-12;
+  }
+}
+
+.eyebrow {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.highlight {
+  @include gradient-text;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}

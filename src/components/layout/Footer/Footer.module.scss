@@ -1,0 +1,105 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  padding: $space-16 $space-6 $space-6;
+
+  @include tablet {
+    padding: $space-12 $space-4 $space-4;
+  }
+}
+
+.glow {
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.9) 0%, transparent 70%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.inner {
+  @include container;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: $space-12;
+  padding-bottom: $space-12;
+
+  @include tablet {
+    flex-direction: column;
+    gap: $space-8;
+  }
+}
+
+.brand {
+  max-width: 320px;
+
+  p {
+    margin-top: $space-3;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.logo {
+  font-family: $font-display;
+  font-size: 1.3rem;
+  font-weight: 700;
+  @include gradient-text;
+}
+
+.links {
+  display: flex;
+  gap: $space-16;
+
+  @include mobile {
+    gap: $space-8;
+  }
+
+  h3 {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: $space-4;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: $space-3;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-text);
+    }
+  }
+}
+
+.bottom {
+  @include container;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-top: $space-6;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+
+  @include tablet {
+    flex-direction: column;
+    gap: $space-2;
+  }
+}

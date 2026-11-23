@@ -1,0 +1,83 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  @include container;
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+
+  @include laptop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  height: 100%;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-6;
+
+  h3 {
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  background: $gradient-primary;
+  color: white;
+  flex-shrink: 0;
+}
+
+.skillList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.skillLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: $space-2;
+  color: var(--text-muted);
+
+  span:first-child {
+    color: var(--text);
+    font-weight: 500;
+  }
+}
+
+.barTrack {
+  width: 100%;
+  height: 6px;
+  border-radius: $radius-full;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+}

@@ -1,0 +1,94 @@
+@use "./variables" as *;
+
+@mixin mobile {
+  @media (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$bp-laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+
+@mixin glass($intensity: 1) {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  // No backdrop-filter: it forces a re-blur of everything behind every card on
+  // each scroll/animation frame. The aurora behind is already soft.
+}
+
+@mixin gradient-border($radius: $radius-lg) {
+  position: relative;
+  border-radius: $radius;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: $gradient-aurora;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@mixin gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin card-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@mixin section-padding {
+  padding: $space-24 $space-6;
+
+  @include tablet {
+    padding: $space-16 $space-4;
+  }
+}
+
+@mixin container {
+  max-width: 1280px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 3px;
+    border-radius: $radius-sm;
+  }
+}

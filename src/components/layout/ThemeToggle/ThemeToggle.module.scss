@@ -1,0 +1,44 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 56px;
+  height: 30px;
+  padding: 0 7px;
+  border-radius: $radius-full;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  @include focus-ring;
+}
+
+.icon {
+  color: var(--text-muted);
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+}
+
+.activeIcon {
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: $gradient-primary;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &[data-theme="dark"] {
+    transform: translateX(26px);
+  }
+}

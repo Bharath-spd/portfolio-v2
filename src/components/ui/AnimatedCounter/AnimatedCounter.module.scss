@@ -1,0 +1,22 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  align-items: center;
+  text-align: center;
+}
+
+.number {
+  font-family: $font-display;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  @include gradient-text;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}

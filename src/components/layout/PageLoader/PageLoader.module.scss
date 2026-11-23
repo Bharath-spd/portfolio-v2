@@ -1,0 +1,36 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: $z-loader;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-6;
+}
+
+.mark {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 2.5rem;
+  @include gradient-text;
+}
+
+.barTrack {
+  width: 160px;
+  height: 3px;
+  border-radius: $radius-full;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  background: $gradient-primary;
+}

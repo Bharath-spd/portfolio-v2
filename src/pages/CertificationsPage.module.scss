@@ -1,0 +1,69 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+  @include container;
+  margin-inline: auto;
+  padding-top: $space-24;
+  min-height: 70vh;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: $space-8;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.header {
+  max-width: 600px;
+  margin: 0 auto $space-12;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: $font-display;
+    font-weight: 700;
+    margin: $space-3 0;
+  }
+
+  p {
+    color: var(--text-muted);
+  }
+}
+
+.eyebrow {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.linkedin {
+  text-align: center;
+  color: var(--text-muted);
+  margin: (-$space-6) 0 $space-8;
+
+  a {
+    color: var(--accent-text);
+    font-weight: 600;
+  }
+}

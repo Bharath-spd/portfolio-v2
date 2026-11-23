@@ -1,0 +1,108 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 20, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: $z-modal;
+  display: flex;
+  justify-content: center;
+  padding-top: 12vh;
+}
+
+.palette {
+  width: min(560px, 90vw);
+  height: fit-content;
+  @include glass(1.5);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-6;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: $font-body;
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+  }
+
+  kbd {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: $radius-sm;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+}
+
+.list {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: $space-2;
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-3 $space-4;
+    background: transparent;
+    border: none;
+    border-radius: $radius-md;
+    color: var(--text);
+    text-align: left;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+
+    &:hover,
+    &[data-active] {
+      background: var(--glass-border);
+    }
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.cmdIcon {
+  color: var(--accent-text);
+  display: flex;
+}
+
+.hint {
+  margin-left: auto;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.empty {
+  padding: $space-6;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
