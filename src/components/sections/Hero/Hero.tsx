@@ -43,7 +43,7 @@ export function Hero() {
         </motion.p>
 
         <motion.div className={styles.ctas} variants={item}>
-          <MagneticButton>
+          <MagneticButton maxOffset={6}>
             <LinkButton
               href={profile.resumeUrl}
               variant="gradient"
@@ -54,7 +54,7 @@ export function Hero() {
               View Resume
             </LinkButton>
           </MagneticButton>
-          <MagneticButton>
+          <MagneticButton maxOffset={6}>
             <LinkButton href="#projects" variant="glass" icon={<ArrowRight size={16} />}>
               View Projects
             </LinkButton>

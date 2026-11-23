@@ -64,7 +64,10 @@ export function About() {
           >
             <GlassCard glow className={styles.factCard}>
               <span className={styles.factEmoji}>{fact.emoji}</span>
-              <span className={styles.factValue}><CountUp value={fact.value} /></span>
+              <span className={styles.factValue}><CountUp
+                  value={parseInt(fact.value, 10) || 0}
+                  suffix={fact.value.replace(/^[\d,]+/, "")}
+                /></span>
               <span className={styles.factLabel}>{fact.label}</span>
             </GlassCard>
           </motion.div>
