@@ -8,6 +8,8 @@ import { ScrollProgress } from "./components/layout/ScrollProgress/ScrollProgres
 import { PageLoader } from "./components/layout/PageLoader/PageLoader";
 import { CommandPalette } from "./components/layout/CommandPalette/CommandPalette";
 import { BackToTop } from "./components/layout/BackToTop/BackToTop";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HomePage } from "./pages/HomePage";
 const BlogPage = lazy(() => import("./pages/BlogPage").then((m) => ({ default: m.BlogPage })));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage").then((m) => ({ default: m.BlogPostPage })));
@@ -46,6 +48,8 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
